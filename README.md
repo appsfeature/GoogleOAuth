@@ -18,7 +18,6 @@ allprojects {
     repositories {
         maven {
             url "https://jitpack.io"
-            credentials { username authToken }
         }
     }
     ext {
@@ -79,11 +78,11 @@ set Google OAuth 2.0 'Web Client ID'
 ### 4. Getters
 
 ``` java
-    //Get Sign in Status
-    GoogleOAuthSession.isSignedIn(<Activity>);
-    
     //Get Access Token
     GoogleOAuthSession.getAccessToken();
+    
+    //Get Sign in Status
+    GoogleOAuthSession.isSignedIn(<Activity>);
     
     //Get Email
     GoogleOAuthSession.getEmail();
