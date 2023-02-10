@@ -12,35 +12,34 @@ Super simple, super easy to use!
 
 ## Quick Setup
 
-### 1. Include library
-
-**Using Gradle**
-
-Step 1. Add the JitPack repository to your build file
-
+Add this to your project build.gradle
 ``` gradle
 allprojects {
     repositories {
-    	...
-        maven { url 'https://jitpack.io' }
-        
+        maven {
+            url "https://jitpack.io"
+            credentials { username authToken }
+        }
+    }
+    ext {
+        appcompat = '1.5.1'
+        play_services_auth = '20.4.1'
     }
 }
 ```
 
-Step 2. Add the dependency
-
+#### Dependency
+[![](https://jitpack.io/v/appsfeature/GoogleOAuth.svg)](https://jitpack.io/#appsfeature/GoogleOAuth)
 ``` gradle
 dependencies {
-    implementation 'com.github.appsfeature:GoogleOAuth:1.0'
+    implementation 'com.github.appsfeature:GoogleOAuth:1.1'
 }
 ```
 
-### 2. Usage
 
-* In Activity :
+# Simple Integration
 
-#### a. Set Server Id
+#### 1. Set Server Id
 
 set Google OAuth 2.0 'Web Client ID'
 
@@ -48,7 +47,7 @@ set Google OAuth 2.0 'Web Client ID'
     GoogleOAuthSession.setAuthProvider("<OAuth 2.0 Web Client ID>");
 ```
 
-#### b. Override onActivityResult
+#### 2. Override onActivityResult
 
 ``` java
     @Override
@@ -58,7 +57,7 @@ set Google OAuth 2.0 'Web Client ID'
     }
 ```
 
-#### C. Call Login API
+#### 3. Call Login API
 
 ``` java 
     GoogleOAuthSession.login(this, new AuthResultCallback<Void>() {
@@ -77,7 +76,7 @@ set Google OAuth 2.0 'Web Client ID'
     });
 ```
 
-### 3. Getters
+### 4. Getters
 
 ``` java
     //Get Sign in Status
