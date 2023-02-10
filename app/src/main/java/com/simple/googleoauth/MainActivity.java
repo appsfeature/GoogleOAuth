@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tvStatus = findViewById(R.id.tv_status);
 
-        GoogleOAuthSession.setAuthProvider("987654321012-frf3thlful1nfcpvqne0668g3eo5780k.apps.googleusercontent.com");
+        GoogleOAuthSession.setAuthProvider("863057945322-mil4p2m67ao7bnadoklholjk7f4sh15t.apps.googleusercontent.com");
     }
 
     @Override

@@ -66,7 +66,7 @@ public class GoogleAuthClient extends AuthClient {
             if (googleSignInClient == null) {
                 callback.onResult(AuthResult.getFailResult(AUTH_CLIENT_INIT_ERROR, "FAIL_TO_INIT_GOOGLE_CLIENT"));
             } else {
-                callback.onResult(AuthResult.getSuccessResult(null));
+                callback.onResult(AuthResult.getSuccessResult());
             }
         }
     }
@@ -112,11 +112,11 @@ public class GoogleAuthClient extends AuthClient {
         if (callback != null) {
             try {
                 googleSignInAccount = task.getResult(ApiException.class);
-                callback.onResult(AuthResult.getSuccessResult(null));
+                callback.onResult(AuthResult.getSuccessResult());
             } catch (ApiException e) {
                 googleSignInAccount = null;
                 int errorResponse = AUTH_CLIENT_BASE_ERROR - e.getStatusCode();
-                String errorMsg = "GOOGLE_AUTH_ERROR_" + e.getStatusCode();
+                String errorMsg = e.toString();
                 if (e.getStatusCode() == GoogleSignInStatusCodes.SIGN_IN_CANCELLED) {
                     errorResponse = AUTH_CLIENT_USER_CANCELLED_ERROR;
                     errorMsg = AUTH_CLIENT_USER_CANCELLED_ERROR_MESSAGE;

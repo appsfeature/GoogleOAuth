@@ -21,12 +21,8 @@ public class AuthResult<T> {
         this.errorMessage = errorMessage;
     }
 
-    public static <T> AuthResult<T> getSuccessResult(@Nullable T contents) {
-        if (contents != null) {
-            return new AuthResult<>(true, contents);
-        } else {
-            return new AuthResult<>(false, null);
-        }
+    public static <T> AuthResult<T> getSuccessResult() {
+        return new AuthResult<>(true, null);
     }
 
     public static <T> AuthResult<T> getFailResult(int errorCode, @NonNull String errorMessaage) {
